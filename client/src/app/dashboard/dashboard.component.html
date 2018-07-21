@@ -1,0 +1,51 @@
+<div class="container">
+
+<div class="section">
+  <h2>Items</h2>
+  <div class="table-responsive">
+    <table class="table">
+      <tr>
+        <th>ID</th><th>Value</th><th></th><th></th>
+      </tr>
+      <tr *ngFor="let item of items">
+        <td>{{item.id}}</td>
+        <td>{{item.value}}</td>
+        <td><button (click)="onSelectEdit(item)">Edit</button></td>
+        <td><button (click)="onDelete(item)">Delete</button></td>
+      </tr>
+    </table>
+  </div>
+</div>
+
+<div *ngIf="selectedItem" class="section">
+  <h2>Editing item</h2>
+  <label>{{selectedItem.id}}
+    <input #editItemValue [value]="selectedItem.value">
+  </label>
+  <button type="submit" (click)="onEdit( $event, selectedItem.id, editItemValue.value )">Edit</button>
+</div>
+
+
+<div class="section">
+  <h2>Add item</h2>
+  <form>
+    <input #addItemID type="text" placeholder="ID">
+    <input #addItemValue type="text" placeholder="Value">
+    <button type="submit" (click)="onAdd( $event, addItemID.value, addItemValue.value )">Add</button>
+  </form>
+</div>
+
+<div class="section">
+  <h2>Debug</h2>
+  <p>
+    Server heartbeat:
+    {{serverHeartbeat}}
+  </p>
+  <p>
+    Debug event: 
+    {{serverMessage}}
+  </p>
+</div>
+
+
+</div>

@@ -1,0 +1,12 @@
+<div class="container">
+
+  <form class="form-signin">
+    <h2 class="form-signin-heading">Please sign in</h2>
+    <label for="inputUserName" class="sr-only">Email address</label>
+    <input type="text" #userName id="inputUserName" class="form-control" placeholder="User Name" required autofocus>
+    <label for="inputPassword" class="sr-only">Password</label>
+    <input type="password" #password id="inputPassword" class="form-control" placeholder="Password" required>
+    <button class="btn btn-lg btn-primary btn-block" type="submit" (click)="onSignIn($event, userName.value, password.value)">Sign in</button>
+  </form>
+  <p>{{responseMessage}}</p>
+</div>

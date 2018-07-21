@@ -1,0 +1,7 @@
+.container {
+  flex-direction: column;
+}
+.section {
+  padding: 1rem;
+  border-bottom: solid 1px;
+}
